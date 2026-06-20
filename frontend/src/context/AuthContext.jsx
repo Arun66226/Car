@@ -2,6 +2,9 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const AuthContext = createContext(null);
 
+// ✅ Yahan tumhara Live Backend URL hai
+const BASE_URL = "https://car-backend-4qfy.onrender.com";
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginUser = async (email, password) => {
-    const response = await fetch('/api/auth/user/login', {
+    const response = await fetch(`${BASE_URL}/api/auth/user/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -38,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginAdmin = async (email, password) => {
-    const response = await fetch('/api/auth/admin/login', {
+    const response = await fetch(`${BASE_URL}/api/auth/admin/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -56,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (name, mobile, email, password) => {
-    const response = await fetch('/api/auth/user/signup', {
+    const response = await fetch(`${BASE_URL}/api/auth/user/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, mobile, email, password }),
