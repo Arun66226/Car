@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TravelsApplication<travels>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mishra.travels.TravelsApplication",
+            "projectName": "travels",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
