@@ -1,11 +1,3 @@
-package com.mishra.travels;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 @SpringBootApplication
 public class TravelsApplication {
 
@@ -13,14 +5,13 @@ public class TravelsApplication {
 		SpringApplication.run(TravelsApplication.class, args);
 	}
 
-	// ✅ Yeh part add karo CORS error fix karne ke liye
-	@Bean
+	@Bean // <--- Yeh @Bean annotation hona bahut zaroori hai!
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("https://car-tour-travels.vercel.app") // Tumhara frontend URL
+						.allowedOrigins("https://car-tour-travels.vercel.app")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowedHeaders("*")
 						.allowCredentials(true);
